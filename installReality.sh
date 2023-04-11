@@ -13,7 +13,7 @@ cd sing-box
 git switch dev-next
 echo "检查及自动安装go环境"
 if ! [ -x "$(command -v go)" ]; then
-curl -Lo go.tar.gz https://go.dev/dl/go1.20.1.linux-amd64.tar.gz
+curl -Lo go.tar.gz https://go.dev/dl/go1.20.3.linux-amd64.tar.gz
 sudo rm -rf /usr/local/go
 sudo tar -C /usr/local -xzf go.tar.gz
 rm go.tar.gz
@@ -25,7 +25,7 @@ if [ -d /usr/local/go ]; then
   export PATH="$PATH:/usr/local/go/bin"
 fi
 
-go install -v -trimpath -ldflags "-s -w -buildid=" -tags with_quic,with_grpc,with_wireguard,with_ech,with_utls,with_acme,with_clash_api,with_gvisor,with_reality_server ./cmd/sing-box
+go install -v -trimpath -ldflags "-s -w -buildid=" -tags with_gvisor,with_quic,with_grpc,with_wireguard,with_ech,with_utls,with_acme,with_clash_api,with_gvisor,with_reality_server ./cmd/sing-box
 
 
 sudo cp $(go env GOPATH)/bin/sing-box /usr/local/bin/
