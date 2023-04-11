@@ -25,7 +25,7 @@ if [ -d /usr/local/go ]; then
   export PATH="$PATH:/usr/local/go/bin"
 fi
 
-go install -v -trimpath -ldflags "-s -w -buildid=" -tags with_quic,with_grpc,with_wireguard,with_ech,with_utls,with_acme,with_clash_api,with_gvisor,with_reality_server ./cmd/sing-box
+go install -v -trimpath -ldflags "-s -w -buildid=" -tags with_gvisor,with_quic,with_grpc,with_wireguard,with_ech,with_utls,with_acme,with_clash_api,with_gvisor,with_reality_server ./cmd/sing-box
 
 
 sudo cp $(go env GOPATH)/bin/sing-box /usr/local/bin/
